@@ -12,6 +12,7 @@ bot.on("message", ctx => {
                 return input.current_price;
             }
         }
+        
         ctx.reply(response.data.find(search).current_price);
     }).catch(error => {
         console.log(error);

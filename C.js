@@ -5,6 +5,15 @@ bot.start(ctx => {
     console.log(ctx.message.from);
     ctx.reply("Hi");
 })
+
+
+
+
+
+
+
+
+
 bot.on("message", ctx => {
     axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd').then(response => {
         function search(input) {
@@ -12,7 +21,7 @@ bot.on("message", ctx => {
                 return input.current_price;
             }
         }
-        
+
         ctx.reply(response.data.find(search).current_price);
     }).catch(error => {
         console.log(error);
